@@ -676,6 +676,321 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutMeAboutMe extends Schema.CollectionType {
+  collectionName: 'about_mes';
+  info: {
+    singularName: 'about-me';
+    pluralName: 'about-mes';
+    displayName: 'aboutMe';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    moisExperience: Attribute.Integer;
+    projectsCompleted: Attribute.Integer;
+    coursCompleted: Attribute.Integer;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-me.about-me',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-me.about-me',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDescriptionDescription extends Schema.CollectionType {
+  collectionName: 'descriptions';
+  info: {
+    singularName: 'description';
+    pluralName: 'descriptions';
+    displayName: 'description';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    desc1: Attribute.Text;
+    desc2: Attribute.Text;
+    desc3: Attribute.Text;
+    desc4: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::description.description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::description.description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEducationEducation extends Schema.CollectionType {
+  collectionName: 'educations';
+  info: {
+    singularName: 'education';
+    pluralName: 'educations';
+    displayName: 'education';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    companyName: Attribute.String;
+    icon: Attribute.Media;
+    iconBg: Attribute.String;
+    date: Attribute.String;
+    description: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'api::description.description'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExperienceExperience extends Schema.CollectionType {
+  collectionName: 'experiences';
+  info: {
+    singularName: 'experience';
+    pluralName: 'experiences';
+    displayName: 'experience';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    companyName: Attribute.String;
+    icon: Attribute.Media;
+    iconBg: Attribute.String;
+    date: Attribute.String;
+    description: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'api::description.description'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInformationInformation extends Schema.CollectionType {
+  collectionName: 'informations';
+  info: {
+    singularName: 'information';
+    pluralName: 'informations';
+    displayName: 'information';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    lastName: Attribute.String;
+    description: Attribute.Text;
+    profilImage: Attribute.Media;
+    profil: Attribute.Relation<
+      'api::information.information',
+      'oneToOne',
+      'api::profil.profil'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::information.information',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::information.information',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLogoLogo extends Schema.CollectionType {
+  collectionName: 'logos';
+  info: {
+    singularName: 'logo';
+    pluralName: 'logos';
+    displayName: 'logo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::logo.logo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::logo.logo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProfilProfil extends Schema.CollectionType {
+  collectionName: 'profils';
+  info: {
+    singularName: 'profil';
+    pluralName: 'profils';
+    displayName: 'Profil';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    profile1: Attribute.String;
+    sec1: Attribute.BigInteger;
+    profile2: Attribute.String;
+    sec2: Attribute.BigInteger;
+    profile3: Attribute.String;
+    sec3: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profil.profil',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profil.profil',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
+  info: {
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    type: Attribute.String;
+    githubURL: Attribute.String;
+    demoURL: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
+  collectionName: 'social_medias';
+  info: {
+    singularName: 'social-media';
+    pluralName: 'social-medias';
+    displayName: 'socialMedia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    linkedinURL: Attribute.String;
+    githubeURL: Attribute.String;
+    twitterURL: Attribute.String;
+    whatssapURL: Attribute.String;
+    emailURL: Attribute.String;
+    phoneURL: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Shared {
     export interface ContentTypes {
@@ -692,6 +1007,15 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-me.about-me': ApiAboutMeAboutMe;
+      'api::description.description': ApiDescriptionDescription;
+      'api::education.education': ApiEducationEducation;
+      'api::experience.experience': ApiExperienceExperience;
+      'api::information.information': ApiInformationInformation;
+      'api::logo.logo': ApiLogoLogo;
+      'api::profil.profil': ApiProfilProfil;
+      'api::project.project': ApiProjectProject;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
     }
   }
 }
